@@ -4,15 +4,15 @@ app = FastAPI()
 
 books = [
     {"title":"Humpty On a Wall", "author":"Mike 1", "category":"science"},
-    {"title":"title 2", "author":"Van Guido Russom 1", "category":"python"},
-    {"title":"title 3", "author":"author 1", "Adrin Mukherjee":"home science"},
+    {"title":"pinky", "author":"Van Guido Russom 1", "category":"python"},
+    {"title":"title Three", "author":"author 1", "category":"home science"},
     {"title":"title 4", "author":"author 1", "Me":"java"}, 
 ]
 
 
 
-@app.get("/books/any-book/{dynamic_param}")
-async def find_any_book(dynamic_param):
+@app.get("/books/{dynamic_parameter}")
+async def find_any_book(dynamic_parameter: str):
     """How the Logic is working
     ----------------------------------
 
@@ -29,7 +29,7 @@ async def find_any_book(dynamic_param):
 
     """
     for book in books:
-        if book.get("title").casefold() == dynamic_param.casefold():
+        if book.get("title").casefold() == dynamic_parameter.casefold():
             return book
-        else:
-            return {"Failure": "Expected Book Not Found, Listing all available books", "books":books}
+    else:
+        return {"reason":"failed to fetch the book, check if you have entered the name correctly?!", "listing books that are available": books}
