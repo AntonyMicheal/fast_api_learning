@@ -6,6 +6,14 @@ learning fast api from scratch..
 
 A virtual environment is a python environment which is isolated from those in other python environments.
 
+### How to create Virtual Env
+
+* `pip install virtualenv`
+* then once you have installed it open the terminal and type in 
+    * `virtualenv venv` - this will create a virtual environment with name `venv`
+* To activate the virtual environment before installing dependencies you can use 
+    * `venv/Scripts/activate` in the path where the `venv` is created this will activate the venv.
+
 ## How to Install Dependencies.
 
 * pip is the python package manager.
