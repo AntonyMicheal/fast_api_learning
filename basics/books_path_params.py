@@ -33,3 +33,14 @@ async def find_any_book(dynamic_parameter: str):
             return book
     else:
         return {"reason":"failed to fetch the book, check if you have entered the name correctly?!", "listing books that are available": books}
+    
+# update the code with multiple dynamic prameters
+
+@app.get("/books/multiple-filter/{title}/wrote/{author}")
+async def read_author_book(title:str, author:str):
+    for book in books:
+        if book.get("title").casefold() == title.casefold() and book.get("author").casefold() == author.casefold():
+            return book 
+        
+    else:
+        return {"reason":"failed to fetch the book, check if you have entered the name correctly?!", "listing books that are available": books}
