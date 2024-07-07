@@ -44,3 +44,15 @@ async def read_author_book(title:str, author:str):
         
     else:
         return {"reason":"failed to fetch the book, check if you have entered the name correctly?!", "listing books that are available": books}
+
+#update it for getting atleast one book based on author or title 
+@app.get("/books/multiple-filter/{title}/or/{author}")
+async def read_author_book(title:str, author:str):
+    works = []
+    for book in books:
+        if book.get("title").casefold() == title.casefold() or book.get("author").casefold() == author.casefold():
+            works.append(book)
+    if len(works) > 0:
+        return works    
+    else:
+        return {"reason":"failed to fetch the book, check if you have entered the name correctly?!", "listing books that are available": books}
