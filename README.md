@@ -29,3 +29,11 @@ also you can use ```pip install -r requirements.txt``` to install all the depend
 
 ## Note: You can use this link to access the notes : 
 * ### https://github.com/AntonyMicheal/fast_api_learning/wiki
+
+### Important key woords - Notes
+Get Request
+- Path parameters
+- Query parameters
+
+Post Request
+- 
