@@ -36,4 +36,18 @@ Get Request
 - Query parameters
 
 Post Request
-- 
+- post creates data using something called "body"
+- to use this you need to import body from fastapi package
+- get request can not have a body
+- syntax = 
+
+    ```python
+    @app.post("/books/create-book")
+    async def create_books(new_book = Body()):
+        books.append(new_book)
+    ```
+`new_book = Body()` acts as the reciever for the input that will be pushed.
+
+Put Request
+- put is used to update the data 
+- put can have body.
