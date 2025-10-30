@@ -26,3 +26,4 @@ async def get_books(get_author: str, category: str):
 @app.get("/books/read_all")
 async def read_books():
   return books
+

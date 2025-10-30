@@ -1,4 +1,4 @@
-from fastapi import Body, FastAPI
+from fastapi import FastAPI
 
 app = FastAPI()
 
@@ -9,15 +9,13 @@ books = [
     {"title":"House Dragon", "author":"antony", "category":"science"} 
 ]
 
-
-@app.put("/books/")
-async def updated_book(book=Body()):
+@app.delete("/books/{book_title}")
+async def delete_books(book_title: str):
   for i in books:
-    if i["title"] == book["title"]:
-      books.append(book)
-      return books
+    if i["title"]==book_title:
+      books.remove(i)
+      break
 
 @app.get("/books/read_all")
 async def read_all():
   return books
-
